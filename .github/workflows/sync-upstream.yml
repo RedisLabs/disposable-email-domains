@@ -13,6 +13,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Configure Git
         run: |
+          git config --global user.email "test1@dredis.com"
+          git config --global user.name "Test Build"
           git remote add upstream https://github.com/disposable/disposable-email-domains.git
       - name: Fetch and merge
         run: |
