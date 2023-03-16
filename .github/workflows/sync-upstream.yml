@@ -19,5 +19,5 @@ jobs:
       - name: Fetch and merge
         run: |
           git fetch upstream
-          git merge upstream/master --allow-unrelated-histories          
+          git merge upstream/master -X theirs --allow-unrelated-histories          
           git push origin master
