@@ -20,5 +20,7 @@ jobs:
           git config --global user.name "Dev team"
           git remote add upstream https://github.com/disposable/disposable-email-domains.git
       - name: Fetch and merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh repo sync RedisLabs/disposable-email-domains --source disposable/disposable-email-domains
