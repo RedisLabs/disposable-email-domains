@@ -21,7 +21,4 @@ jobs:
           git remote add upstream https://github.com/disposable/disposable-email-domains.git
       - name: Fetch and merge
         run: |
-          git fetch upstream
-          git checkout master
-          git merge upstream/master -X theirs --allow-unrelated-histories          
-          git push origin master
+          gh repo sync RedisLabs/disposable-email-domains --source disposable/disposable-email-domains
