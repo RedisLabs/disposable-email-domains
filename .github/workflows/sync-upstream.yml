@@ -11,11 +11,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+          ref: master
       - name: Configure Git
         run: |
+          git config --global user.email "dev-team@redis.com"
+          git config --global user.name "Dev team"
           git remote add upstream https://github.com/disposable/disposable-email-domains.git
       - name: Fetch and merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git fetch upstream
-          git merge upstream/master
-          git push origin master
+          gh repo sync RedisLabs/disposable-email-domains --source disposable/disposable-email-domains
